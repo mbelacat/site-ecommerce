@@ -2,11 +2,10 @@
 <?php include("template/header.php"); ?>
 <?php
 session_start();
-//var_dump($_SESSION);
-echo "Bonjour : " . $_SESSION["user"]["firstname"];
+// var_dump($_SESSION);
+echo "Bonjour : " . $_SESSION["user"]["name"];
 ?>
-
-
+<?php include("template/aside.php"); ?>
 
 
 

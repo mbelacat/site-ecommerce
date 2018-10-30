@@ -1,7 +1,7 @@
 <!-- Voici la page qui va recevoir les données du formulaire, les traiter et rediriger l'utilisateur vers la page adéquate -->
 <?php
 var_dump($_POST);
-require("fonctions.php");
+require "Model/function.php";
 $users = getUsers();
 var_dump($users);
 
@@ -10,8 +10,8 @@ foreach ($_POST as $key => $value) {
 }
 
 foreach ($users as $key => $user) {
- echo $user["name"]." ".$user["firstname"];
- if($user["name"] === $_POST["name"] && $user["firstname"] === $_POST["firstname"] &&  $user["password"] === $_POST["password"] && $user["password"] ===  $user["PasswordRepeat"]){
+ echo $user["name"];
+ if($user["name"] === $_POST["name"] &&  $user["password"] === $_POST["password"] ){
    session_start();
    $_SESSION["user"] = $_POST;
    header("Location: products.php");
