@@ -13,14 +13,14 @@
     <form class=" mb-5 mt-5" action="login.php" method="post">
       <div class="form-row">
         <div class="col-md-6 col-lg-5 mb-3">
-          <input type="text" class="form-control  rounded-0" id="name" placeholder="name" value="Mbela" required>
+          <input type="text" class="form-control  rounded-0"  name="name" placeholder="name" required>
           <label for="name">name</label>
           <!-- <div class="valid-feedback">
             Looks good!
           </div> -->
         </div>
         <div class="col-md-6 col-lg-5 mb-3">
-          <input type="text" class="form-control rounded-0" id="password" placeholder="********" required>
+          <input type="text" class="form-control rounded-0" name="password" placeholder="********" required>
           <label for="password">Password</label>
           <!-- <div class="invalid-feedback">
             Please enter a password.

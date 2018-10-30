@@ -2,7 +2,7 @@
 
 function getUsers() {
   return [
-    ["name" => "Jean-luc", "password" => "Simplon1478963", "status" => "admin", "sexe" => "homme"],
+    ["name" => "Jeanluc", "password" => "Simplon1478963", "status" => "admin", "sexe" => "homme"],
     ["name" => "Claire45", "password" => "toutlesmatINS", "status" => "admin", "sexe" => "femme"],
     ["name" => "Doudou", "password" => "password", "status" => "user", "sexe" => "homme"],
     ["name" => "ReneGard", "password" => "mai68", "status" => "writer", "sexe" => "homme"],
