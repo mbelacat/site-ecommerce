@@ -1,39 +1,47 @@
 <!-- Voici la page qui va afficher le formulaire dans le template -->
 <?php include("template/header.php"); ?>
 
+<?php
+  if(isset($_GET["message"])){
+    $message = $_GET["message"];
+    echo "<p>Attention:" . $message . "</p>";
+  }
+  var_dump($_GET);
+  ?>
+
 <main >
   <div class="container border mb-5">
     <form class="needs-validation mb-5 mt-5" novalidate>
       <div class="form-row">
         <div class="col-md-6 col-lg-5 mb-3">
-          <input type="text" class="form-control  rounded-0" id="validationCustom01" placeholder="First name" value="Mbela" required>
-          <label for="validationCustom01">First name</label>
-          <div class="valid-feedback">
+          <input type="text" class="form-control  rounded-0" id="firstName" placeholder="First name" value="Mbela" required>
+          <label for="firstName">First name</label>
+          <!-- <div class="valid-feedback">
             Looks good!
-          </div>
+          </div> -->
         </div>
         <div class="col-md-6 col-lg-5 mb-3">
-          <span class="border-bottom"> <input type="text" class="form-control rounded-0 " id="validationCustom02" placeholder="Last name" value="Mbemba" required></span>
-          <label for="validationCustom02">Last name</label>
-          <div class="valid-feedback">
+          <span class="border-bottom"> <input type="text" class="form-control rounded-0 " id="lastName" placeholder="Last name" value="Mbemba" required></span>
+          <label for="lastName">Last name</label>
+          <!-- <div class="valid-feedback">
             Looks good!
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="form-row">
         <div class="col-md-6 col-lg-5 mb-3">
-          <input type="text" class="form-control rounded-0" id="validationCustom03" placeholder="********" required>
-          <label for="validationPassword">Password</label>
-          <div class="invalid-feedback">
+          <input type="text" class="form-control rounded-0" id="Password" placeholder="********" required>
+          <label for="Password">Password</label>
+          <!-- <div class="invalid-feedback">
             Please enter a password.
-          </div>
+          </div> -->
         </div>
         <div class="col-md-6 col-lg-5 mb-3">
-          <input type="text" class="form-control rounded-0" id="validationCustom04" placeholder="********" required>
-          <label for="validationPasswordRepeat">Password</label>
-          <div class="invalid-feedback">
+          <input type="text" class="form-control rounded-0" id="PasswordRepeat" placeholder="********" required>
+          <label for="PasswordRepeat">Password</label>
+          <!-- <div class="invalid-feedback">
             Please enter the same password.
-          </div>
+          </div> -->
         </div>
           <button class="btn btn-primary btn-lg  mb-3 pt-0 pl-1 pr-1 align-self-baseline rounded-0 d-none d-lg-block col-lg-2" type="submit">Sign Up</button>
 
