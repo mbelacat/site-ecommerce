@@ -19,7 +19,7 @@ foreach ($users as $key => $user) {
  if(($user["name"] === $_POST["name"]) && ($user["password"] === $_POST["password"])){
 echo "vous etes dejà inscrit";
    session_start();
-   $_SESSION["user"] = $_POST;
+   $_SESSION["user"] = $user; 
    header("Location: products.php");
    exit;
    // return; // permet de retun l'echo ci-dessus
