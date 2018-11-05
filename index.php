@@ -8,7 +8,6 @@
   }
   ?>
 
-<main class="bg_pink  pt-5 pb-5   d-flex justify-content-center align-items-center" >
   <div class="container border border-6  border-white m-0 h-50">
     <form class=" mb-5 mt-5" action="login.php" method="post">
       <div class="form-row text-white d-flex justify-content-center">
@@ -32,7 +31,7 @@
       <button class="btn bg-dark rounded-0 d-lg-none  col-md-6 col-xs-12" type="submit">Sign Up</button>
     </form>
   </div>
-</main>
+
 
 
 <?php include("template/footer.php"); ?>

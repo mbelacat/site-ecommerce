@@ -15,9 +15,7 @@ $users = getUsers();
   <div class="row">
     <?php include("template/aside.php"); ?>
     <div class="col-lg-9">
-      <h2 class="text-center"><?php echo "Le panier de " . $_SESSION["user"]["name"];
-        ?>
-      </h2>
+      <h2 class="text-center">Nos produits</h2>
       <div class="row ">
 
         <?php   foreach ($products as $key => $product) {

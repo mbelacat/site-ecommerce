@@ -1,6 +1,7 @@
-<div class="jumbotron m-0 p-5 rounded-0 bg-dark text-white">
+</main>
+<footer class="jumbotron m-0 p-5 rounded-0 bg-dark text-white">
   <h1 class="display-12 text-center m-0">footer</h1>
-</div>
+</footer>
 
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
