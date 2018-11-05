@@ -31,5 +31,4 @@
     <h1 class="display-9">Bienvenue sur notre site e-commerce</h1>
   </header>
 
-  <main class="bg_pink  pt-5 pb-5   d-flex justify-content-center align-items-center" >
-  
+  <main class="bg_pink  pt-0 pb-0   d-flex justify-content-center align-items-center" >

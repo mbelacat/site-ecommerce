@@ -1,5 +1,5 @@
 <aside class="col-lg-3 bg-info ">
-  <div class="row aside-info h-50 d-none d-sm-block">
+  <div class="row aside-info d-none d-sm-block">
     <h3 class="col-12">Mes Infos</h3>
     <div class="user col-md-6 col-lg-12">
       Mon speudo:
@@ -26,5 +26,4 @@
         <a href="logout.php" class="logout-link">Déconnection</a>
       </div>
   </div>
-
 </aside>
