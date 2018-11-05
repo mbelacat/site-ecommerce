@@ -17,9 +17,16 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body>
+<body >
+  <header class="jumbotron text-center m-0 p-5 h-25 bg-dark text-white rounded-0 sticky-top">
 
-  <div class="jumbotron text-center">
+    <?php
+                      if(!empty($_SESSION['name']) && !empty($_SESSION['password'])) {echo('
+                        <div class="login">
+                          <a href="logout.php" class="logout-link col-2 text-center badge badge-light">Me déconnecter</a>
+                        </div>
+                          ');};
+                 ?>
+
     <h1 class="display-9">Bienvenue sur notre site e-commerce</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  </div>
+  </header>

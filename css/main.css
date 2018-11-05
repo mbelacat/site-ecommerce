@@ -99,15 +99,28 @@ textarea {
 
 
 
+/* ================= card products=============*/
+main{
+  min-height: 21em;
+}
+div.row.card-img-top{
+background-image: url(tile-wide.png);
+}
+
+.btn{
+  background-color: #a9b18f;
+}
 
 
 
 
+.bg_pink{
+  background-color: #cf8e80;
+}
 
+.bg-info{
 
-
-
-
+}
 
 
 

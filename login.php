@@ -6,23 +6,22 @@ $users = getUsers();
 // var_dump($users);
 
 foreach ($_POST as $key => $value) {
- $_POST[$key] = strtoupper("$value") ;
+ $_POST[$key] = htmlspecialchars("$value") ;
 }
 
 foreach ($users as $key => $user) {
   $user["name"] = strtoupper($user['name']) ;
   $user["password"] = strtoupper($user['password']) ;
-
  // echo $user["name"];
  // echo $user["password"];
 
  if(($user["name"] === $_POST["name"]) && ($user["password"] === $_POST["password"])){
 echo "vous etes dejà inscrit";
    session_start();
-   $_SESSION["user"] = $user; 
+   $_SESSION["user"] = $user;
    header("Location: products.php");
    exit;
-   // return; // permet de retun l'echo ci-dessus
+   // return; // permet de return l'echo ci-dessus
  }
 }
 header("Location: index.php?message=Erreur identifiants");
