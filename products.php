@@ -7,11 +7,11 @@ if(!isset($_SESSION["user"])){
 }
 include("template/header.php");
 require "Model/function.php";
+require "Service/functionsShoppingCart.php";
 $products = getProducts();
 $users = getUsers();
 // var_dump($_SESSION);
 ?>
-<main class="container justify-content-center mw-100">
   <div class="row">
     <?php include("template/aside.php"); ?>
     <div class="col-lg-9">
@@ -24,27 +24,26 @@ $users = getUsers();
           }else{
             $stock = 'non disponible';
           }
-          echo
-          '<div class="col-12 col-md-6 col-lg-4 mt-4 mb-4">
+          ?>
+
+          <div class="col-12 col-md-6 col-lg-4 mt-4 mb-4">
             <div class="card ">
               <img class="card-img" src="tile.png" alt="Card image">
               <div class="row card-img">
-                <div class="card-category col-6 ">' . $product["category"] . '</div>
-                <div class="card-price col-6 text-right">' . $product["price"] . '$ </div>
+                <div class="card-category col-6 "> <?php echo $product["category"] ?></div>
+                <div class="card-price col-6 text-right"><?php echo $product["price"] ?> $</div>
               </div>
               <div class="card-body">
-                <h5 class="card-title">' . $product["name"] . '</h5>
-                <h6 class="card-stock">' . $stock . '</h6>
+                <h5 class="card-title"><?php echo $product["name"] ?></h5>
+                <h6 class="card-stock"><?php echo $stock ?></h6>
               </div>
               <div class="card-body-link text-center">
-                <a href="product.php?id=' . $product["id"] . '" class="card-link badge badge-secondary p-2 m-1">Voir</a>
+                <a href="product.php?id=<?php echo $product["id"] ?>" class="card-link badge badge-secondary p-2 m-1">Voir</a>
               </div>
             </div>
-          </div>';
-              }
-              ?>
+          </div>
+          <?php  } ?>
         </div>
     </div>
   </div>
-</main>
 <?php include("template/footer.php"); ?>

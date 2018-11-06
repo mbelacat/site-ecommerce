@@ -8,7 +8,7 @@
   }
   ?>
 
-  <div class="container border border-6  border-white m-0 h-50">
+  <div class="container border border-6  border-white m-5 p-5 h-50">
     <form class=" mb-5 mt-5" action="login.php" method="post">
       <div class="form-row text-white d-flex justify-content-center">
         <div class="col-md-6 col-lg-4 mb-3">
