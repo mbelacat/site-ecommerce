@@ -8,39 +8,29 @@ require "Service/loginManager.php";
 
 
 <?php
+if($_GET['action'] === "add") {
+    addToShoppingCartForeach($products);
+    header("Location: products.php");
+    exit;
+}elseif ($_GET['action'] === "remove") {
+    removeToShoppingCart($_GET['key']);
+    header("Location: shoppingCart.php");
+    exit;
 
-   $products = getProducts();
-   $_GET['id'] = intval($_GET['id']) ;
-   foreach ($products as $key => $product) {
-     if ($_GET['id'] === $product["id"]) {
-       addToShoppingCart($product);
-       header("Location: products.php");
-       exit;
-     }
-   }
-   //On verifie que $productPrice soit un integer
-   $productPrice =intval($product['price']);
+}elseif($_GET['action'] === "empty"){
+    emptyShoppingCart();
+    header("Location: shoppingCart.php");
+    exit;
+}elseif($_GET['action'] === "decrease"){
+    decreaseProduct($_GET['key']);
+    header("Location: shoppingCart.php");
+    exit;
+}elseif($_GET['action'] === "increase"){
+    increaseProduct($_GET['key']);
+    header("Location: shoppingCart.php");
+    exit;
+}
 
 
 
-
-// }
-// if (!$erreur){
-//    switch($action){
-//       Case "add":
-//       addToShoppingCart($product["name"], $product['price'], 1);
-//       break;
-//
-//       // Case "remove":
-//       //    removeProduct($productName);
-//       //    break;
-//       //
-//       // Case "refresh":
-//       //    refresh($prodQuant);
-//       //    break;
-//
-//       Default:
-//          break;
-//    }
-// }
  ?>

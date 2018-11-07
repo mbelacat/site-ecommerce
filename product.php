@@ -28,7 +28,7 @@ foreach ($products as $key => $product){
         <div class="card-category col-4 "><?php echo $product["category"]?></div>
         <div class="card-avaibility col-4 ">
           <?php if ($product["stock"] === false) {
-                echo "En rupture";}
+                echo "Victime de son succés";}
                 else{
                 echo "Disponible";} ?>
         </div>
@@ -37,7 +37,9 @@ foreach ($products as $key => $product){
     </div>
     <div class="card-body-link text-center">
       <a href="products.php" class="card-link">Retour</a>
-      <a href="shopping.php?action=add&id=<?php echo $product["id"]?>" class="card-link">Ajouter</a>
+      <?php if($product["stock"]){?>
+        <a href="shopping.php?action=add&id=<?php echo $product["id"]?>" class="card-link">Ajouter</a>
+      <?php };?>
     </div>
   </article>
   <?php
