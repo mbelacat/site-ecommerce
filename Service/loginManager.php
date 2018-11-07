@@ -13,6 +13,7 @@ function userIsRegistered($users, $form) {
 function startUserSession($user) {
   session_start();
   $_SESSION["user"] = $user;
+  $_SESSION["shoppingCart"] = [];
 }
 
  ?>

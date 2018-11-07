@@ -1,4 +1,3 @@
-<?php require("Service/functionsShoppingCart.php") ?>
 
 <?php
 session_start();
@@ -8,7 +7,9 @@ if(!isset($_SESSION["user"])){
 }
 
 // var_dump($_SESSION);
- ?>
+?>
+<?php require("Service/functionsShoppingCart.php") ?>
+
 <?php include("template/header.php"); ?>
 
 <div class="row">
