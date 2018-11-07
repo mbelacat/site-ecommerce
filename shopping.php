@@ -9,26 +9,21 @@ require "Service/loginManager.php";
 
 <?php
 
-// $erreur = false;
-//
-// $action = isset($_GET['action'])? $_GET['action']:null  ;
-// if($action !== null)
-// {
-   // if(!in_array($action,array('add', 'remove','refresh')))
-
-   //récuperation des variables
    $products = getProducts();
-   // var_dump($products);
    $_GET['id'] = intval($_GET['id']) ;
-
-
    foreach ($products as $key => $product) {
      if ($_GET['id'] === $product["id"]) {
        addToShoppingCart($product);
+       header("Location: products.php");
+       exit;
      }
    }
    //On verifie que $productPrice soit un integer
    $productPrice =intval($product['price']);
+
+
+
+
 // }
 // if (!$erreur){
 //    switch($action){

@@ -21,9 +21,7 @@ function addToShoppingCart($product){
 //    {
 //       //Nous allons passer par un panier temporaire
 //       $temporarySC=array();
-//       $temporarySC['productName'] = array();
-//       $temporarySC['productQuantity'] = array();
-//       $temporarySC['productPrice'] = array();
+//       
 //
 //       for($i = 0; $i < count($_SESSION['shoppingCart']['productName']); $i++)
 //       {

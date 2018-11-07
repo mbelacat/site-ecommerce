@@ -1,6 +1,4 @@
 
-
-
 <aside class="col-lg-3 bg-info ">
   <div class="row aside-info d-none d-sm-block">
     <h3 class="col-12">Mes Infos</h3>
@@ -25,16 +23,19 @@
     </div>
 
   </div>
-  <div class="">
+  <div class="row">
+    <h3 class="col-12">Votre panier <a href="shoppingCart.php">( Voir )</a> </h3>
+
     <ul class="list-group">
     <?php
-    //foreach on the shopping cart stocked on session
-    // foreach ($_SESSION["shoppingCart"] as $key => $value) {
-    //   echo "<li class='list-group-item'>$key : $value</li>";
-    // }
+    // foreach on the shopping cart stocked on session
+    foreach ($_SESSION['shoppingCart'] as $key => $value) {
+      echo "<li class='list-group-item'>  - " .$value["name"] ."  ".$value["productQuantity"]."</li>";
+    }
     ?>
   </ul>
   </div>
+
   <div class="login col-12 text-center badge badge-light">
     <a href="logout.php" class="logout-link">Déconnection</a>
   </div>

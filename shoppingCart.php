@@ -15,40 +15,34 @@ if(!isset($_SESSION["user"])){
 <div class="row">
 
 
-<h2 class="col-12 ">Votre panier</h2>
+  <h2 class="col-12 ">Votre panier</h2>
 
-<table class="table col-12">
-  <thead>
-    <tr>
-      <th scope="col">Article</th>
-      <th scope="col">Description</th>
-      <th scope="col">Quantité</th>
-      <th scope="col">Montant</th>
-      <th scope="col">Supprimer</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+  <table class="table col-12">
+    <thead>
+      <tr>
+        <th scope="col">Article</th>
+        <th scope="col">Quantité</th>
+        <th scope="col">Montant</th>
+        <th scope="col">Supprimer</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <?php
+      foreach ($_SESSION['shoppingCart'] as $key => $value) {
+        echo '<tr>';
+        echo '<th scope="row">'.$value["name"]."</th>";
+        echo '<td>'.$value["productQuantity"]."</td>";
+        echo '<td>'.$value["price"]."</td>";
+        echo '<td><a href =""><i class="fas fa-times"></i></a></td>';
+        echo '</tr>';
+      }
+      ?>
+    </tbody>
+
+  </table>
+  <h3>Total de votre panier :</h3>
+
 
 </div>
 
