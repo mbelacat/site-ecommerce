@@ -25,14 +25,14 @@ if(!isset($_SESSION["user"])){
         echo '<tr>';
         echo '<th scope="row">'.$value["name"]."</th>";
         echo '<td><a href="shopping.php?action=decrease&key='. $key .'"> < </a>'.$value["productQuantity"].'<a href="shopping.php?action=increase&key='. $key .'"> > </a></td>';
-        echo '<td>'.$value["price"]."</td>";
-        echo '<td><a href="shopping.php?action=remove&key='. $key .'" class="card-link"><i class="fas fa-times"></i></a></td>';
+        echo '<td>'.subTotal($key)." $</td>";
+        echo '<td><a href="shopping.php?action=remove&key='. $key .'" class="card-link"><i class="fas fa-trash-alt"></i></a></td>';
         echo '</tr>';
       }
       ?>
     </tbody>
   </table>
-  <h3>Total de votre panier : <?php totalAmount()?></h3>
+  <h3>Total de votre panier : <?php echo totalAmount($key)?> $</h3>
   <h4><a href="shopping.php?action=empty">Vider mon panier</a></h4>
 <?php }else{?>
   <div class="">

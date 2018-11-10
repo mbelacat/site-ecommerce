@@ -1,5 +1,4 @@
 <?php
-
 function addToShoppingCart($product){
   $idProduct = array_column($_SESSION['shoppingCart'], "id");
      // if the Idproduct exist we add product
@@ -36,20 +35,28 @@ function removeToShoppingCart($key){
 }
 
 function increaseProduct($key){
-  $_SESSION['shoppingCart'][$key]['productQuantity'] += 1;
+    $_SESSION['shoppingCart'][$key]['productQuantity'] += 1;
 }
 
 function decreaseProduct($key){
-  $_SESSION['shoppingCart'][$key]['productQuantity'] -= 1;
+  if ($_SESSION['shoppingCart'][$key]['productQuantity'] > 0) {
+    $_SESSION['shoppingCart'][$key]['productQuantity'] -= 1;
+  }else{
+    $_SESSION['shoppingCart'][$key]['productQuantity'] = 0;
+  }
 }
-function totalAmount(){
+
+function totalAmount($key){
    $total=0;
-   for($i = 0; $i < count($_SESSION['shoppingCart'][$key]['productName']); $i++)
-   {
-      $total += $_SESSION['shoppingCart'][$key]['productQuantity'][$i] * $_SESSION['shoppingCart']['productPrice'][$i];
+  foreach ($_SESSION['shoppingCart'] as $key => $value){
+    $total += $_SESSION['shoppingCart'][$key]['productQuantity'] * $value["price"];
    }
    return $total;
 }
+ function subTotal($key){
+   $total = $_SESSION['shoppingCart'][$key]['productQuantity'] * $_SESSION['shoppingCart'][$key]["price"];
+   return $total;
+ }
 //
 // function refresh(){
 //     for ($i = 0 ; $i < count($prodQuant) ; $i++)
