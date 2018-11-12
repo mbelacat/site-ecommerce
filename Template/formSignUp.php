@@ -9,22 +9,34 @@ if(isset($_GET["errors"])){
     echo "<p>Erreur n°".$i .":" . $errors[$code[$i]]. "</p>";
   }
 }
-// isset($_SESSION["form"]['name'])){
-//
+
+
+// if isset($_SESSION["form"]){
+// foreach ($_SESSION["form"] as $key => $value) {
+//   var_dump($_SESSION["form"][$key]);
+// }
 // }
   ?>
-<form class=" mb-5 mt-5" action="signUp.php" method="post">
-  <div class="form-row flex-column text-white d-flex flex-column">
+<form class=" mb-5 mt-5 bg-lgt-green h-75 text-white" action="signUp.php" method="post">
+  <div class="form-row flex-column d-flex flex-column">
     <div class="col-12 mb-3">
-      <input type="text" class="form-control  rounded-0 bg_pink border-white"  name="name" placeholder="Nom" value="<?php if (isset($_SESSION["form"]['name'])){echo $_SESSION["form"]['name'];} ?>">
+      <input type="text" class="form-control bg-lgt-green border-white rounded-0"  name="name" placeholder="Nom" value="<?php if (isset($_SESSION["form"]['name'])){echo $_SESSION["form"]['name'];} ?>">
       <label for="name">Name</label>
     </div>
     <div class="col-12 mb-3">
-      <input type="text" class="form-control rounded-0 bg_pink border-white" name="password" placeholder="********" value="<?php if (isset($_SESSION["form"]['password'])){echo $_SESSION["form"]['password'];} ?>">
+      <select class="custom-select rounded-0 bg-lgt-green border-white" name="sexe">
+        <option selected>Sexe</option>
+        <option value="Homme">Homme</option>
+        <option value="Femme">Femme</option>
+      </select>
+      <label for="name">Name</label>
+    </div>
+    <div class="col-12 mb-3">
+      <input type="text" class="form-control rounded-0 bg-lgt-green border-white" name="password" placeholder="********" value="<?php if (isset($_SESSION["form"]['password']) && !empty($_SESSION["form"]['password'])){echo $_SESSION["form"]['password'];} ?>">
       <label for="password">Password</label>
     </div>
     <div class="mb-3">
-      <input type="text" class="form-control rounded-0 bg_pink border-white" name="confirmedPassword" placeholder="********" value="<?php if (isset($_SESSION["form"]['confirmedPassword'])){echo $_SESSION["form"]['confirmedPassword'];} ?>">
+      <input type="text" class="form-control rounded-0 bg-lgt-green border-white" name="confirmedPassword" placeholder="********" value="<?php if (isset($_SESSION["form"]['confirmedPassword'])){echo $_SESSION["form"]['confirmedPassword'];} ?>">
       <label for="confirmedPassword">Confirmed Password</label>
     </div>
     <button class="btn bg-dark btn-lg  mb-3 p-1  align-self-baseline rounded-0 d-none d-lg-block col-lg-2 w-75" type="submit">M'inscrire</button>

@@ -21,14 +21,16 @@
   <header class="jumbotron text-center m-0 p-5 h-25 bg-dark text-white rounded-0 sticky-top">
 
     <?php
-                      if(!empty($_SESSION['name']) && !empty($_SESSION['password'])) {echo('
+                      if(!empty($_SESSION['user']['name']) && !empty($_SESSION['user']['password'])) {echo'
+                        <div class="">
+                        </div
                         <div class="login">
                           <a href="logout.php" class="logout-link col-2 text-center badge badge-light">Me déconnecter</a>
                         </div>
-                          ');};
+                          ';};
                  ?>
 
-    <h1 class="display-9">Bienvenue sur notre site e-commerce</h1>
+    <h1 class="display-9">Bienvenue dans la boutique</h1>
   </header>
 
-  <main class="bg_pink  pt-0 pb-0   d-flex justify-content-center align-items-center" >
+  <main class="  pt-0 pb-0   d-flex justify-content-center align-items-center" >

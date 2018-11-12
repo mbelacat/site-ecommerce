@@ -6,12 +6,12 @@
   ?>
 <form class=" mb-5 mt-5" action="login.php" method="post">
   <div class="form-row text-white d-flex flex-column">
-    <div class=" mb-3">
-      <input type="text" class="form-control  rounded-0 bg_pink border-white"  name="name" placeholder="Nom" >
+    <div class="mb-3">
+      <input type="text" class="form-control  rounded-0 bg-lgt-green border-white"  name="name" placeholder="Nom" >
       <label for="name">Name</label>
     </div>
     <div class=" mb-3">
-      <input type="text" class="form-control rounded-0 bg_pink border-white" name="password" placeholder="********">
+      <input type="text" class="form-control rounded-0 bg-lgt-green border-white" name="password" placeholder="********">
       <label for="password">Password</label>
     </div>
     <button class="btn bg-dark btn-lg  mb-3 p-1  align-self-baseline rounded-0 d-none d-lg-block col-lg-2 w-75" type="submit">Me connecter</button>

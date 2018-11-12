@@ -1,7 +1,7 @@
 <!-- Voici la page qui va afficher le formulaire dans le template -->
 <?php include("Template/header.php"); ?>
 
-  <div class="container border border-6  border-white m-5 p-5 h-50">
+  <div class="container border border-6 bg-lgt-green border-white m-5 p-5 h-50">
     <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
 
@@ -24,7 +24,7 @@
        <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><?php include("Template/formSignUp.php") ?></div>
       <?php }else{  ?>
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><?php include("Template/formSignIn.php") ?></div>
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><?php include("Template/formSignUp.php") ?></div>'
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><?php include("Template/formSignUp.php") ?></div>
       <?php } ?>
     </div>
   </div>

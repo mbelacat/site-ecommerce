@@ -57,12 +57,13 @@ function totalAmount($key){
    $total = $_SESSION['shoppingCart'][$key]['productQuantity'] * $_SESSION['shoppingCart'][$key]["price"];
    return $total;
  }
-//
-// function refresh(){
-//     for ($i = 0 ; $i < count($prodQuant) ; $i++)
-//     {
-//       modifTheProductQuantity($_SESSION['shoppingCart']['productName'][$i],round($prodQuant[$i]));
-//     }
-// }
 
+function numberOfItems($key){
+  $total=0;
+  foreach ($_SESSION['shoppingCart'] as $key => $value){
+    $total += $_SESSION['shoppingCart'][$key]['productQuantity'] ;
+
+  }
+return $total;
+}
  ?>

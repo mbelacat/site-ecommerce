@@ -17,7 +17,7 @@ function userIsRegistered($users, $form) {
 
 //  function to start session if the user is signup
 function userSignUp($form){
-  if(((preg_match("/([a-zA-Z0-9]){3,}/", $form["name"])) === "1") && ($form["password"] === $form["confirmedPassword"]) && (preg_match("/(?=.*\d)(?=.*[A-Z]).{6,}$/", $form["password"]))){
+  if(((preg_match("/([a-zA-Z0-9]){3,}/", $form["name"])) === "1") && ($form["password"] === $form["confirmedPassword"]) && (preg_match("/(?=.*\d)(?=.*[A-Z]).{6,}$/", $form["password"])) && ($form["sexe"] !== "Sexe")){
     startUserSession($user);
     return true;
   }
@@ -63,10 +63,11 @@ function atLeastSixChars($form){
 }
 
 function emptyInput($form){
-  if(empty($form['name']) || empty($form['password']) || empty($form['confirmedPassword'])){
+  if(empty($form['name']) || empty($form['password']) || empty($form['confirmedPassword']) || $form["sexe"] === "Sexe"){
     return "0";
   }
 }
+
 // function to have a string with errors'code
 function checkResgistration($form){
   $code = "";
