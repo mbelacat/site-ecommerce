@@ -1,4 +1,5 @@
-<?php include("template/header.php"); ?>
+<?php include("template/header.php");
+ require("Service/functionsShoppingCart.php")?>
 <?php
 session_start();
 if(empty($_SESSION)){
@@ -24,15 +25,16 @@ foreach ($products as $key => $product){
     <h5 class="card-title text-center"><?php echo $product["name"]?></h5>
     <div class="card-body">
       <p class="card-description"><?php echo $product["description"]?></p>
-      <div class="row text-center">
-        <div class="card-category col-4 "><?php echo $product["category"]?></div>
-        <div class="card-avaibility col-4 ">
+      <div class="row text-center d-flex justify-content-around">
+        <div class="card-category col-2 bg-lgt-green "><?php echo $product["category"]?></div>
+        <div class="card-avaibility col-2 bg-lgt-green ">
           <?php if ($product["stock"] === false) {
                 echo "Victime de son succés";}
                 else{
                 echo "Disponible";} ?>
         </div>
-        <div class="card-price col-4"><?php echo $product["price"]?> $ </div>
+        <div class="card-made-in col-2 bg-lgt-green"><?php echo $product["made_in"]?></div>
+        <div class="card-price col-2 bg-lgt-green font-weight-bold"><?php echo $product["price"]?> $ </div>
       </div>
     </div>
     <div class="card-body-link text-center">

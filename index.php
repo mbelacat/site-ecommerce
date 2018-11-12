@@ -1,37 +1,31 @@
 <!-- Voici la page qui va afficher le formulaire dans le template -->
 <?php include("Template/header.php"); ?>
 
-<?php
-  if(isset($_GET["message"])){
-    $message = htmlspecialchars($_GET["message"]);
-    echo "<p>Attention:" . $message . "</p>";
-  }
-  ?>
+  <div class="container border border-6 bg-lgt-green border-white m-5 p-5 h-50">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
 
-  <div class="container border border-6  border-white m-5 p-5 h-50">
-    <form class=" mb-5 mt-5" action="login.php" method="post">
-      <div class="form-row text-white d-flex justify-content-center">
-        <div class="col-md-6 col-lg-4 mb-3">
-          <input type="text" class="form-control  rounded-0 bg_pink border-white"  name="name" placeholder="Polo" required>
-          <label for="name">name</label>
-          <!-- <div class="valid-feedback">
-            Looks good!
-          </div> -->
-        </div>
-        <div class="col-md-6 col-lg-4 mb-3">
-          <input type="text" class="form-control rounded-0 bg_pink border-white" name="password" placeholder="********" required>
-          <label for="password">Password</label>
-          <!-- <div class="invalid-feedback">
-            Please enter a password.
-          </div> -->
-        </div>
-
-        <button class="btn bg-dark btn-lg  mb-3 p-1  align-self-baseline rounded-0 d-none d-lg-block col-lg-2 w-75" type="submit">Sign Up</button>
+        <?php
+        if(isset($_GET['errors'])){
+         ?>
+         <a class="nav-item nav-link " id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Se connecter</a>
+         <a class="nav-item nav-link active" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">S'inscrire</a>
+        <?php }else{  ?>
+          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Se connecter</a>
+          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">S'inscrire</a>
+        <?php } ?>
       </div>
-      <button class="btn bg-dark rounded-0 d-lg-none  col-md-6 col-xs-12" type="submit">Sign Up</button>
-    </form>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <?php
+      if(isset($_GET['errors'])){
+       ?>
+       <div class="tab-pane fade " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><?php include("Template/formSignIn.php") ?></div>
+       <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><?php include("Template/formSignUp.php") ?></div>
+      <?php }else{  ?>
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><?php include("Template/formSignIn.php") ?></div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"><?php include("Template/formSignUp.php") ?></div>
+      <?php } ?>
+    </div>
   </div>
-
-
-
 <?php include("template/footer.php"); ?>

@@ -1,5 +1,5 @@
 
-<aside class="col-lg-3 bg-info ">
+<aside class="col-lg-3 bg-lgt-green pl-5 pt-5 ">
   <div class="row aside-info d-none d-sm-block">
     <h3 class="col-12">Mes Infos</h3>
     <div class="user col-md-6 col-lg-12">
@@ -24,19 +24,24 @@
 
   </div>
   <div class="row">
-    <h3 class="col-12">Votre panier <a href="shoppingCart.php">( Voir )</a> </h3>
+    <h3 class="col-12">Mon panier <a href="shoppingCart.php">(
+      <?php
 
+    // poor style very dirty!!!!!!!!!!!
+      foreach ($_SESSION['shoppingCart'] as $key => $value) {
+        echo numberOfItems($key) ;
+
+      }
+
+      ?>
+       )</a> </h3>
     <ul class="list-group">
     <?php
     // foreach on the shopping cart stocked on session
     foreach ($_SESSION['shoppingCart'] as $key => $value) {
-      echo "<li class='list-group-item'>  - " .$value["name"] ."  ".$value["productQuantity"]."</li>";
+      echo "<li class='list-group-item bg-lgt-green'>  - " .$value["name"] ."  ".$value["productQuantity"]."</li>";
     }
     ?>
   </ul>
-  </div>
-
-  <div class="login col-12 text-center badge badge-light">
-    <a href="logout.php" class="logout-link">Déconnection</a>
   </div>
 </aside>

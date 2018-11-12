@@ -1,6 +1,5 @@
 <!-- Voici la page qui va recevoir les données du formulaire, les traiter et rediriger l'utilisateur vers la page adéquate -->
 <?php
-// var_dump($_POST);
 require "Model/function.php";
 require "Service/formCleaner.php";
 require "Service/loginManager.php";

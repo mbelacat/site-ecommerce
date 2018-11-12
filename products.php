@@ -5,6 +5,10 @@ if(!isset($_SESSION["user"])){
   header("Location: index.php");
   exit;
 }
+if(isset($_GET["message"])){
+  $message = htmlspecialchars($_GET["message"]);
+    echo "<p>$message</p>";
+}
 include("template/header.php");
 require "Model/function.php";
 require "Service/functionsShoppingCart.php";
@@ -22,7 +26,7 @@ $users = getUsers();
           if ($product["stock"] === true){
             $stock = 'disponible';
           }else{
-            $stock = 'non disponible';
+            $stock = 'Victime de son succés';
           }
           ?>
 
