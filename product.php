@@ -17,7 +17,7 @@ $users = getUsers();
 <?php include("template/aside.php"); ?>
 <?php
 
-$_GET['id'] = intval($_GET['id']);
+$_GET['id'] = intval(htmlspecialchars($_GET['id']));
 foreach ($products as $key => $product){
   if ($_GET['id'] === $product['id']){
 ?>

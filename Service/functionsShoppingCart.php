@@ -15,7 +15,7 @@ function addToShoppingCart($product){
 
 function  addToShoppingCartForeach($products){
   $products = getProducts();
-  $_GET['id'] = intval($_GET['id']) ;
+  $_GET['id'] = intval(htmlspecialchars($_GET['id'])) ;
   foreach ($products as $key => $product) {
     if ($_GET['id'] === $product["id"]) {
       addToShoppingCart($product);
@@ -30,7 +30,7 @@ function emptyShoppingCart(){
 }
 
 function removeToShoppingCart($key){
-  $key = intval($_GET['key']);
+  $key = intval(htmlspecialchars($_GET['key']));
   unset($_SESSION['shoppingCart'][$key]);
 }
 
@@ -62,7 +62,6 @@ function numberOfItems($key){
   $total=0;
   foreach ($_SESSION['shoppingCart'] as $key => $value){
     $total += $_SESSION['shoppingCart'][$key]['productQuantity'] ;
-
   }
 return $total;
 }

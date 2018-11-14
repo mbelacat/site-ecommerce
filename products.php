@@ -4,18 +4,20 @@ session_start();
 if(!isset($_SESSION["user"])){
   header("Location: index.php");
   exit;
-}
-if(isset($_GET["message"])){
-  $message = htmlspecialchars($_GET["message"]);
-    echo "<p>$message</p>";
-}
+} ?>
+
+<?php if(isset($_GET["message"])){
+  $message = htmlspecialchars($_GET["message"]); ?>
+    <div class="alert alert-danger" role="alert"><?php echo $message ?></div>
+<?php } ?>
+<?php
 include("template/header.php");
 require "Model/function.php";
 require "Service/functionsShoppingCart.php";
-$products = getProducts();
-$users = getUsers();
-// var_dump($_SESSION);
+// $products = getProducts();
+// $users = getUsers();
 ?>
+
   <div class="row">
     <?php include("template/aside.php"); ?>
     <div class="col-lg-9">

@@ -28,10 +28,15 @@
       <?php
 
     // poor style very dirty!!!!!!!!!!!
+    if(isset($_SESSION['shoppingCart']) && !empty($_SESSION['shoppingCart'])){
       foreach ($_SESSION['shoppingCart'] as $key => $value) {
-        echo numberOfItems($key) ;
 
       }
+      echo numberOfItems($key) ;
+    }else{
+      echo "0";
+    }
+
 
       ?>
        )</a> </h3>
