@@ -6,4 +6,5 @@ function cleanFormEntries($form) {
   }
   return $form;
 }
+
 ?>

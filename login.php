@@ -3,12 +3,15 @@
 require "Model/function.php";
 require "Service/formCleaner.php";
 require "Service/loginManager.php";
+require "Model/db.php";
+require "test.php";
+
 
 //On vérifie si le formulaire a été rempli
 if(!empty($_POST)) {
   $_POST = cleanFormEntries($_POST);
   //On récupère les utilisateurs stockés sur le site (ici pour l'exercice ils sont stockés dans une fonction)
-  $users = getUsers();
+  allItems();
   //On vérifie si on trouve une correspondance avec les infromations du formulaire
   if(userIsRegistered($users, $_POST)) {
     header("Location: products.php");

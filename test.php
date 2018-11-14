@@ -1,15 +1,46 @@
 <?php
-try
-{
-	$bdd = new PDO('mysql:host=localhost;dbname=bdecommerce;charset=utf8', 'mbela', 'rootroot');
+// try
+// {
+// 	$bdd = new PDO('mysql:host=localhost;dbname=bdecommerce;charset=utf8', 'mbela', 'rootroot');
+// }
+// catch (Exception $e)
+// {
+//         die('Erreur : ' . $e->getMessage());
+// }
+// $select = $bdd->query('SELECT * FROM user');
+// $users = $select->fetchAll(PDO::FETCH_ASSOC);
+// foreach ($users as $user) {
+//   echo $user["name"];
+// }
+?>
+
+<?php
+function connectToDataBAse(){
+  try
+  {
+	   $db = new PDO('mysql:host=localhost;dbname=bdecommerce;charset=utf8', 'mbela', 'rootroot');
+  }
+  catch (Exception $e)
+  {
+    die('Erreur : ' . $e->getMessage());
+  }
+	return $db;
 }
-catch (Exception $e)
-{
-        die('Erreur : ' . $e->getMessage());
+
+
+function getUsers(){
+  $db = connectToDataBAse();
+  $select = $db->query('SELECT * FROM user');
+  $users = $select->fetchAll(PDO::FETCH_ASSOC);
+  return $users;
 }
-// $bdd = new PDO('mysql:host=localhost;bdname=bdecommerce;charset=utf8', 'mbela', 'rootroot', array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-$select = $bdd->query('SELECT * FROM product');
-$products = $select->fetchAll(PDO::FETCH_ASSOC);
-foreach ($products as $product) {
-  echo $product["name"];
-} ?>
+
+function getProduct(){
+	$db = connectToDataBAse();
+  $select = $db->query('SELECT * FROM product');
+  $product = $select->fetchAll(PDO::FETCH_ASSOC);
+  return $product;
+}
+var_dump(allItems());
+
+?>

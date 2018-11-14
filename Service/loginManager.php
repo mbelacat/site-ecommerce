@@ -5,15 +5,15 @@ function startUserSession($user) {
   $_SESSION["shoppingCart"] = [];
 }
 
-function userIsRegistered($users, $form) {
-  foreach ($users as $user) {
-    if($user["name"] === $form["name"] && $user["password"] === $form["password"]) {
-      //Si c'est le cas on démarre une session pour y stocker les informations de l'utilisateur
-      startUserSession($user);
-      return true;
-    }
-  }
-}
+// function userIsRegistered($users, $form) {
+//   foreach ($users as $user) {
+//     if($user["name"] === $form["name"] && $user["password"] === $form["password"]) {
+//       //Si c'est le cas on démarre une session pour y stocker les informations de l'utilisateur
+//       startUserSession($user);
+//       return true;
+//     }
+//   }
+// }
 
 //  function to start session if the user is signup
 function userSignUp($form){
@@ -30,10 +30,13 @@ function moreThanThreeChar($form){
 }
 // function to know if the password are the same
 function samePassword($form){
+  $form["password"] = md5($form["password"]);
+  $form["confirmedPassword"] = md5($form["confirmedPassword"]);
   if (($form["password"] !== $form["confirmedPassword"])){
     return "1" ;
   }
 }
+
 // function to have the errors'codes for at least one number? one uppercase? six chars?
 function atLeastOneNumberAndOneUppercaseandSixChars($form){
   if((preg_match("/(?=.*\d)(?=.*[A-Z]).{6,}$/", $form["password"])) === 0){
