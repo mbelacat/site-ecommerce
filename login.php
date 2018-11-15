@@ -1,19 +1,22 @@
 <!-- Voici la page qui va recevoir les données du formulaire, les traiter et rediriger l'utilisateur vers la page adéquate -->
 <?php
-require "Model/function.php";
+require "Model/userManager.php";
 require "Service/formCleaner.php";
 require "Service/loginManager.php";
 require "Model/db.php";
-require "test.php";
 
 
 //On vérifie si le formulaire a été rempli
 if(!empty($_POST)) {
   $_POST = cleanFormEntries($_POST);
   //On récupère les utilisateurs stockés sur le site (ici pour l'exercice ils sont stockés dans une fonction)
-  allItems();
+  // $users = getUsers();
   //On vérifie si on trouve une correspondance avec les infromations du formulaire
-  if(userIsRegistered($users, $_POST)) {
+  $hashedPassword = getUserPassword($_POST["name"]);
+  $correctPassword = password_verify($_POST["password"], $hashedPassword);
+  var_dump($correctPassword);
+  if($correctPassword == true) {
+    startUserSession($_POST);
     header("Location: products.php");
     exit;
   }

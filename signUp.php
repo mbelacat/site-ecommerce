@@ -1,5 +1,4 @@
 <?php
-
 require "Service/formCleaner.php";
 require "Service/loginManager.php";
 require "Service/errorManager.php";
@@ -17,10 +16,13 @@ if(strlen($code) > 0){
 else{
   // on va verifier si le nom exite en
   $userCheck = getUser($_POST["name"]);
-  if(empty($userCheck)){
-    // si existe dc nom empty = On ajoute une entrée dans la table user
-    addUser($_POST);
-    if($userCheck($_POST["name"])){
+  if(!$userCheck){
+    // connectToDataBAse();
+    $_POST["password"] = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    var_dump($_POST["password"]);
+    //si existe pas donc empty = On ajoute une entrée dans la table user
+    //return true si ajoute user
+    if(addUser($_POST)){
       header("Location: index.php?message=Vous êtes bien enregistré(e). Vous pouvez vous connecter.");
       exit;
     }else{
@@ -33,11 +35,4 @@ else{
    exit;
  }
 }
-
-
-
-// else{
-//   header("Location: index.php?message=Vous n'etes pas enregistré. Veuillez contacter l'administrateur du site.");
-//   exit;
-// }
 ?>

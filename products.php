@@ -1,10 +1,10 @@
 <!-- voici la page qui n'est accessible que si l'utilisateur est connecté, qui affiche les produit et les informations sur l'utilisateur -->
 <?php
 session_start();
-if(!isset($_SESSION["user"])){
-  header("Location: index.php");
-  exit;
-} ?>
+// if(!isset($_SESSION["user"])){
+//   header("Location: index.php");
+//   exit;
+// } ?>
 
 <?php if(isset($_GET["message"])){
   $message = htmlspecialchars($_GET["message"]); ?>
@@ -12,9 +12,11 @@ if(!isset($_SESSION["user"])){
 <?php } ?>
 <?php
 include("template/header.php");
-require "Model/function.php";
+require "Model/db.php";
+require "Model/userManager.php";
+require "Model/productManager.php";
 require "Service/functionsShoppingCart.php";
-// $products = getProducts();
+//$products = getProducts();
 // $users = getUsers();
 ?>
 

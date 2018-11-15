@@ -5,13 +5,20 @@ function startUserSession($user) {
   $_SESSION["shoppingCart"] = [];
 }
 
-// function userIsRegistered($users, $form) {
-//   foreach ($users as $user) {
-//     if($user["name"] === $form["name"] && $user["password"] === $form["password"]) {
-//       //Si c'est le cas on démarre une session pour y stocker les informations de l'utilisateur
-//       startUserSession($user);
-//       return true;
-//     }
+// function userIsRegistered($name) {
+//   $db = connectToDataBAse();
+//   // Get Input From User Which Is The User`s Password
+//   $select = $db->prepare('SELECT password FROM user WHERE name = ?');
+//   // var_dump($query);
+//   $select->execute([$name]);
+//    // Fetch The Hashed Password From Your Database
+//   $hashedPassword = $select->fetch(PDO::FETCH_ASSOC);
+//   var_dump($hashedPassword);
+//
+//   $correctPassword = password_verify($_POST["password"], $hashedPassword);
+//   $select->closeCursor();
+//   if($hashedPassword === $correctPassword ){
+//     return true;
 //   }
 // }
 
@@ -30,8 +37,6 @@ function moreThanThreeChar($form){
 }
 // function to know if the password are the same
 function samePassword($form){
-  $form["password"] = md5($form["password"]);
-  $form["confirmedPassword"] = md5($form["confirmedPassword"]);
   if (($form["password"] !== $form["confirmedPassword"])){
     return "1" ;
   }
