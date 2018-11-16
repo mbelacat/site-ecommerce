@@ -30,9 +30,7 @@
     }else{
       echo "0";
     }
-
-
-      ?>
+    ?>
        )</a> </h3>
     <ul class="list-group">
     <?php

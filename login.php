@@ -4,8 +4,6 @@ require "Model/userManager.php";
 require "Service/formCleaner.php";
 require "Service/loginManager.php";
 require "Model/db.php";
-
-
 //On vérifie si le formulaire a été rempli
 if(!empty($_POST)) {
   $_POST = cleanFormEntries($_POST);
@@ -18,10 +16,14 @@ if(!empty($_POST)) {
   var_dump($correctPassword);
   if($correctPassword == true) {
     startUserSession($user);
+    if($user["status"] === "user"){
     header("Location: products.php");
     exit;
-  }
-  else {
+    }else{
+      header("Location: admin.php");
+      exit;
+    }
+  }else {
     header("Location: index.php?message=Nous n'avons aucun utilisateur avec ce nom ou ce mot de passe");
     exit;
   }

@@ -7,8 +7,9 @@ function addUser($user){
       "sexe" => $user["sexe"],
       "status" =>  "user",
       "password" => $user["password"]));
-  return $result;
   $query->closeCursor();
+  return $result;
+
 }
 
 function getUser($name){

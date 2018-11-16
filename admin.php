@@ -1,4 +1,11 @@
 <?php
+session_start();
+if(!isset($_SESSION["user"])){
+  header("Location: index.php");
+  exit;
+}
+?>
+<?php
 include "Template/header.php" ;
 require "Service/formCleaner.php";
 require "Service/loginManager.php";
@@ -9,28 +16,29 @@ require "Model/productManager.php";
 
 <div class="row d-flex flex-column w-75">
 <?php
-  // if(isset($_GET["message"])){
-  //   $message = htmlspecialchars($_GET["message"]);
-  //     echo "<p>$message</p>";
-  // }
+  if(isset($_GET["message"])){
+    $message = htmlspecialchars($_GET["message"]);
+    echo "<p>$message</p>";
+  }
 ?>
 <?php
   $products = getProducts();
 
-?>
-  <h2 class="col-12 ">Tous les produits</h2>
+?><div class="">
+    <h2 class="col-12 ">Tous les produits</h2>
+    <a href="addProduct.php">ajouter un produit</a>
+  </div>
   <table class="table col-12 text-center">
     <thead>
       <tr>
         <th scope="col">Article</th>
-        <th scope="col">category</th>
-        <th scope="col">made_in</th>
-        <th scope="col">price</th>
-        <th scope="col">stock</th>
-        <th scope="col">Ajouter</th>
+        <th scope="col">Category</th>
+        <th scope="col">Made in</th>
+        <th scope="col">Price</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Changer le stock</th>
         <th scope="col">Modifier</th>
         <th scope="col">Supprimer</th>
-
       </tr>
     </thead>
     <tbody>
@@ -47,11 +55,11 @@ require "Model/productManager.php";
           $value["stock"] = " épuisé ";
         }
         echo '<td scope="row">'.$value["stock"]."</th>";
-        echo '<td><a href="addProduct.php?action=add&key='. $key .'" class="card-link">Ajouter</a></td>';
+        echo '<td><a href="" class="card-link"></a></td>';
 
-        echo '<td><a href="adminTreatment.php?action=add&key='. $key .'" class="card-link">Ajouter</a></td>';
+        // echo '<td><a href="adminTreatment.php?action=add&key='. $key .'" class="card-link">Ajouter</a></td>';
         echo '<td><a href="updateProduct.php?action=update&key='. $key .'" class="card-link">Modifier</a></td>';
-        echo '<td><a href="adminTreatment.php?action=remove&key='. $key .'" class="card-link"><i class="fas fa-trash-alt"></i></a></td>';
+        echo '<td><a href="adminTreatment.php?action=delete&key='. $key .'" class="card-link"><i class="fas fa-trash-alt"></i></a></td>';
 
         // echo '<td><a href="shopping.php?action=decrease&key='. $key .'"> < </a>'.$value["productQuantity"].'<a href="shopping.php?action=increase&key='. $key .'"> > </a></td>';
         // echo '<td><a href="shopping.php?action=remove&key='. $key .'" class="card-link"><i class="fas fa-trash-alt"></i></a></td>';
