@@ -16,9 +16,7 @@ function getUser($name){
   $select = $db->prepare("SELECT * FROM user WHERE name= ?");
   $select->execute([$name]);
   $user = $select->fetch(PDO::FETCH_ASSOC);
-  if ($user){
-    return true;
-  }
+  return $user;
 }
 
 function getUsers(){
@@ -29,10 +27,11 @@ function getUsers(){
 }
 
 function getUserPassword($name){
-  $db = connectToDataBAse();
-  $select = $db->prepare("SELECT * FROM user WHERE name= ?");
-  $select->execute([$name]);
-  $user = $select->fetch(PDO::FETCH_ASSOC);
+  // $db = connectToDataBAse();
+  // $select = $db->prepare("SELECT * FROM user WHERE name= ?");
+  // $select->execute([$name]);
+  // $user = $select->fetch(PDO::FETCH_ASSOC);
+  getUser($name);
   $hashedPassword = $user["password"];
   return $hashedPassword;
 }

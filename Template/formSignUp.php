@@ -27,7 +27,7 @@ require "Service/repopulateFormFunction.php";
         <option value="Homme">Homme</option>
         <option value="Femme">Femme</option>
       </select>
-      <label for="name">Name</label>
+      <label for="name">Sexe</label>
     </div>
     <div class="col-12 mb-3">
       <input type="text" class="form-control rounded-0 bg-lgt-green border-white" name="password" placeholder="********" value="<?php if (isset($_SESSION["form"]['password']) && !empty($_SESSION["form"]['password'])){echo $_SESSION["form"]['password'];} ?>">

@@ -27,6 +27,8 @@ require "Model/productManager.php";
         <th scope="col">made_in</th>
         <th scope="col">price</th>
         <th scope="col">stock</th>
+        <th scope="col">Ajouter</th>
+        <th scope="col">Modifier</th>
         <th scope="col">Supprimer</th>
 
       </tr>
@@ -45,7 +47,11 @@ require "Model/productManager.php";
           $value["stock"] = " épuisé ";
         }
         echo '<td scope="row">'.$value["stock"]."</th>";
-        echo '<td><a href="shopping.php?action=remove&key='. $key .'" class="card-link"><i class="fas fa-trash-alt"></i></a></td>';
+        echo '<td><a href="addProduct.php?action=add&key='. $key .'" class="card-link">Ajouter</a></td>';
+
+        echo '<td><a href="adminTreatment.php?action=add&key='. $key .'" class="card-link">Ajouter</a></td>';
+        echo '<td><a href="updateProduct.php?action=update&key='. $key .'" class="card-link">Modifier</a></td>';
+        echo '<td><a href="adminTreatment.php?action=remove&key='. $key .'" class="card-link"><i class="fas fa-trash-alt"></i></a></td>';
 
         // echo '<td><a href="shopping.php?action=decrease&key='. $key .'"> < </a>'.$value["productQuantity"].'<a href="shopping.php?action=increase&key='. $key .'"> > </a></td>';
         // echo '<td><a href="shopping.php?action=remove&key='. $key .'" class="card-link"><i class="fas fa-trash-alt"></i></a></td>';

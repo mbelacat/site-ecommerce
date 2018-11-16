@@ -85,23 +85,4 @@ function checkResgistration($form){
   return $code .= atLeastOneNumberAndOneUppercaseandSixChars($form);
 }
 
-
-
-
-
-
-// function allItems($table){
-//   include("../db.php");
-//   $select = $bdd->query('SELECT * FROM'. $table);
-//   $products = $select->fetchAll(PDO::FETCH_ASSOC);
-//   foreach ($products as $product) {
-//   echo $product["name"];
-//   }
-// }
-// var_dump(allItems("product"));
-
-// function createItem($name, $sexe, $name, $password){
-//   connectToDataBAse($dbname);
-//   $query = $db->query('INSERT INTO `user`(`id`, `name`, `sexe`, `status`, `password`) VALUES ("", $name, $sexe, "user",$password)');
-// }
  ?>

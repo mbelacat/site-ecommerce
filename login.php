@@ -12,11 +12,12 @@ if(!empty($_POST)) {
   //On récupère les utilisateurs stockés sur le site (ici pour l'exercice ils sont stockés dans une fonction)
   // $users = getUsers();
   //On vérifie si on trouve une correspondance avec les infromations du formulaire
-  $hashedPassword = getUserPassword($_POST["name"]);
+  $user = getUser($_POST["name"]);
+  $hashedPassword = $user["password"];
   $correctPassword = password_verify($_POST["password"], $hashedPassword);
   var_dump($correctPassword);
   if($correctPassword == true) {
-    startUserSession($_POST);
+    startUserSession($user);
     header("Location: products.php");
     exit;
   }

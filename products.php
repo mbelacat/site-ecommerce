@@ -16,8 +16,8 @@ require "Model/db.php";
 require "Model/userManager.php";
 require "Model/productManager.php";
 require "Service/functionsShoppingCart.php";
-//$products = getProducts();
-// $users = getUsers();
+$users = getUsers();
+$products = getProducts();
 ?>
 
   <div class="row">
@@ -25,6 +25,7 @@ require "Service/functionsShoppingCart.php";
     <div class="col-lg-9">
       <h2 class="text-center">Nos produits</h2>
       <div class="row ">
+        <?php  ?>
 
         <?php   foreach ($products as $key => $product) {
           if ($product["stock"] === true){
