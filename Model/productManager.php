@@ -45,12 +45,10 @@ function updateProduct($product){
 		$query->closeCursor();
 }
 
-function deleteProduct($product){
+function deleteProduct($id){
 	$db = connectToDataBAse();
-	$select = $db->prepare('DELETE * FROM product WHERE name= ?');
-	$select->execute([$name]);
-	$product = $select->fetch(PDO::FETCH_ASSOC);
+	$select = $db->prepare('DELETE FROM product WHERE id= ?');
+	$select->execute([$id]);
 	$select->closeCursor();
-	return $products;
 }
  ?>

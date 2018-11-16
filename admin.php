@@ -56,10 +56,8 @@ require "Model/productManager.php";
         }
         echo '<td scope="row">'.$value["stock"]."</th>";
         echo '<td><a href="" class="card-link"></a></td>';
-
-        // echo '<td><a href="adminTreatment.php?action=add&key='. $key .'" class="card-link">Ajouter</a></td>';
-        echo '<td><a href="updateProduct.php?action=update&key='. $key .'" class="card-link">Modifier</a></td>';
-        echo '<td><a href="adminTreatment.php?action=delete&key='. $key .'" class="card-link"><i class="fas fa-trash-alt"></i></a></td>';
+        echo '<td><a href="updateProduct.php?action=update&id='. $value["id"] .'" class="card-link">Modifier</a></td>';
+        echo '<td><a href="adminTreatment.php?action=delete&id='. $value["id"] .'" class="card-link"><i class="fas fa-trash-alt"></i></a></td>';
 
         // echo '<td><a href="shopping.php?action=decrease&key='. $key .'"> < </a>'.$value["productQuantity"].'<a href="shopping.php?action=increase&key='. $key .'"> > </a></td>';
         // echo '<td><a href="shopping.php?action=remove&key='. $key .'" class="card-link"><i class="fas fa-trash-alt"></i></a></td>';
