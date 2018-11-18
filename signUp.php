@@ -17,9 +17,7 @@ else{
   // on va verifier si le nom exite en
   $userCheck = getUser($_POST["name"]);
   if(!$userCheck){
-    // connectToDataBAse();
     $_POST["password"] = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    var_dump($_POST["password"]);
     //si existe pas donc empty = On ajoute une entrée dans la table user
     //return true si ajoute user
     if(addUser($_POST)){

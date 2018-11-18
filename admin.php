@@ -26,7 +26,7 @@ require "Model/productManager.php";
 
 ?><div class="">
     <h2 class="col-12 ">Tous les produits</h2>
-    <a href="addProduct.php">ajouter un produit</a>
+    <a href="addProductForm.php">ajouter un produit</a>
   </div>
   <table class="table col-12 text-center">
     <thead>
@@ -56,7 +56,7 @@ require "Model/productManager.php";
         }
         echo '<td scope="row">'.$value["stock"]."</th>";
         echo '<td><a href="" class="card-link"></a></td>';
-        echo '<td><a href="updateProduct.php?action=update&id='. $value["id"] .'" class="card-link">Modifier</a></td>';
+        echo '<td><a href="updateProductForm.php?id='. $value["id"] .'" class="card-link">Modifier</a></td>';
         echo '<td><a href="adminTreatment.php?action=delete&id='. $value["id"] .'" class="card-link"><i class="fas fa-trash-alt"></i></a></td>';
 
         // echo '<td><a href="shopping.php?action=decrease&key='. $key .'"> < </a>'.$value["productQuantity"].'<a href="shopping.php?action=increase&key='. $key .'"> > </a></td>';
