@@ -6,4 +6,4 @@ $errors=[
   "Votre mot de passe doit contenir au moins 6 charatères.",
   "Votre mot de passe doit contenir au moins une majuscule.",
   "Votre mot de passe doit contenir au moins un chiffre.",
-  ] ?>
+]; ?>

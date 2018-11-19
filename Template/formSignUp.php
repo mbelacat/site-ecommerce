@@ -1,22 +1,20 @@
 <?php
-
 session_start();
 require "Service/errorManager.php";
 require "Service/repopulateFormFunction.php";
-if(isset($_GET["errors"])){
-  $code = htmlspecialchars($_GET["errors"]);
-  for ($i=0; $i < strlen($code) ; $i++) {
-    echo "<p>Erreur n°".$i .":" . $errors[$code[$i]]. "</p>";
+?>
+
+<div class="alert alert-danger" role="alert">
+  <?php
+  if(isset($_GET["errors"])){
+    $code = htmlspecialchars($_GET["errors"]);
+    for ($i=0; $i < strlen($code) ; $i++) {
+      echo "<div>Erreur n°".$i .":" . $errors[$code[$i]]. "</div>";
+    }
   }
-}
-
-
-// if isset($_SESSION["form"]){
-// foreach ($_SESSION["form"] as $key => $value) {
-//   var_dump($_SESSION["form"][$key]);
-// }
-// }
   ?>
+</div>
+
 <form class=" mb-5 mt-5 bg-lgt-green h-75 text-white" action="signUp.php" method="post">
   <div class="form-row flex-column d-flex flex-column">
     <div class="col-12 mb-3">
@@ -29,7 +27,7 @@ if(isset($_GET["errors"])){
         <option value="Homme">Homme</option>
         <option value="Femme">Femme</option>
       </select>
-      <label for="name">Name</label>
+      <label for="name">Sexe</label>
     </div>
     <div class="col-12 mb-3">
       <input type="text" class="form-control rounded-0 bg-lgt-green border-white" name="password" placeholder="********" value="<?php if (isset($_SESSION["form"]['password']) && !empty($_SESSION["form"]['password'])){echo $_SESSION["form"]['password'];} ?>">

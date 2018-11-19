@@ -1,26 +1,31 @@
 <!-- voici la page qui n'est accessible que si l'utilisateur est connecté, qui affiche les produit et les informations sur l'utilisateur -->
 <?php
 session_start();
-if(!isset($_SESSION["user"])){
-  header("Location: index.php");
-  exit;
-}
-if(isset($_GET["message"])){
-  $message = htmlspecialchars($_GET["message"]);
-    echo "<p>$message</p>";
-}
+// if(!isset($_SESSION["user"])){
+//   header("Location: index.php");
+//   exit;
+// } ?>
+
+<?php if(isset($_GET["message"])){
+  $message = htmlspecialchars($_GET["message"]); ?>
+    <div class="alert alert-danger" role="alert"><?php echo $message ?></div>
+<?php } ?>
+<?php
 include("template/header.php");
-require "Model/function.php";
+require "Model/db.php";
+require "Model/userManager.php";
+require "Model/productManager.php";
 require "Service/functionsShoppingCart.php";
-$products = getProducts();
 $users = getUsers();
-// var_dump($_SESSION);
+$products = getProducts();
 ?>
+
   <div class="row">
     <?php include("template/aside.php"); ?>
     <div class="col-lg-9">
       <h2 class="text-center">Nos produits</h2>
       <div class="row ">
+        <?php  ?>
 
         <?php   foreach ($products as $key => $product) {
           if ($product["stock"] === true){
